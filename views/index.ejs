@@ -1,3 +1,10 @@
-<p>
-    <%= users %>
-</p>
+
+<% if (locals.users){ %>
+    <div>
+        <p><%= users %></p>
+    </div>
+<% } else { %>
+    <div>
+        <p><%= products %></p>
+    </div>
+<% } %>

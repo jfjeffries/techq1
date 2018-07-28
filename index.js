@@ -1,7 +1,13 @@
 require('dotenv').config()
 require('./models')
+// require('ejs')
+// const bodyParser = require('body-parser')
 const express = require('express');
 const app = express();
+// const sequelize = require('./db')
+// sequelize.sync();
+
+// app.use(bodyParser.json());
 app.use(require('body-parser').json());
 app.set('view engine', 'ejs');
 

@@ -8,6 +8,8 @@ class AccountUserService {
     }
 
     findAllUsers(query) {
+        console.log("query: ",query)
+        console.log("constructor: ",this._userId)
         return this.checkUser()
         .then(
             (err) => {
@@ -24,17 +26,17 @@ class AccountUserService {
     }
 
     checkUser() {
-        if (!this._userId)
+        console.log("In checkUser")
+        if (!this._userId){
             return new Promise((resolve, reject) => {
-                return resolve(false)
-            })
-
-            console.log(this._userId)
+            return resolve(false)
+        })}
+            console.log("uid to check:",this._userId)
         return AccountUser.findOne({ where: { uid: this._userId} })
-            .catch(
-                (error) => false
-            ).then(
+            .then(
                 (user) => user
+            ).catch(
+                (error) => false
             )
     }
 }
